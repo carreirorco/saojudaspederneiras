@@ -21,6 +21,26 @@ var I={
 function zap(msg){return "https://wa.me/"+D.whatsapp.numero+"?text="+encodeURIComponent(msg)}
 function mapaUrl(){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(D.mapa.consulta)}
 
+/* ---------- Pix: BR Code estático (padrão do Banco Central) ---------- */
+function tlv(id,v){var l=String(v.length);return id+(l.length<2?"0"+l:l)+v}
+function semAcento(s){return String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^A-Za-z0-9 ]/g,"").toUpperCase()}
+function crc16(str){
+  var c=0xFFFF;
+  for(var i=0;i<str.length;i++){c^=str.charCodeAt(i)<<8;for(var j=0;j<8;j++){c=(c&0x8000)?((c<<1)^0x1021):(c<<1);c&=0xFFFF}}
+  return ("0000"+c.toString(16).toUpperCase()).slice(-4);
+}
+function pixPayload(p){
+  var conta=tlv("00","BR.GOV.BCB.PIX")+tlv("01",p.chave);
+  var s=tlv("00","01")+tlv("01","11")+tlv("26",conta)+tlv("52","0000")+tlv("53","986")+tlv("58","BR")+
+    tlv("59",semAcento(p.nome).slice(0,25))+tlv("60",semAcento(p.cidade).slice(0,15))+tlv("62",tlv("05","***"))+"6304";
+  return s+crc16(s);
+}
+function pixQrSvg(payload){
+  if(typeof qrcode!=="function") return "";
+  var q=qrcode(0,"M"); q.addData(payload); q.make();
+  return q.createSvgTag(5,4,"QR Code Pix da "+D.pix.nome,"QR Code Pix");
+}
+
 function render(){
   var h='<div class="stack">';
   h+='<a class="btn primary" href="'+esc(D.agenda.url)+'">'+I.cal+'<span><b>'+esc(D.agenda.titulo)+'</b><small>'+esc(D.agenda.texto)+'</small></span></a>';
@@ -41,8 +61,12 @@ function render(){
   h+='<section class="card"><h2>'+I.pin+esc(D.mapa.titulo)+'</h2><p>'+esc(D.mapa.texto)+'</p>'+
     '<div class="actions"><a class="pill solid" href="'+esc(mapaUrl())+'" target="_blank" rel="noopener noreferrer">Abrir no mapa</a></div></section>';
 
+  var payload=pixPayload(D.pix), svg=pixQrSvg(payload);
   h+='<section class="card"><h2>'+I.heart+esc(D.pix.titulo)+'</h2><p>'+esc(D.pix.texto)+'</p>'+
-    '<div class="chave"><b>'+esc(D.pix.exibir)+'</b><button type="button" class="pill" data-copy="'+esc(D.pix.chave)+'">'+I.copy+'Copiar</button></div>'+
+    '<div class="chave"><b>'+esc(D.pix.exibir)+'</b><button type="button" class="pill" data-copy="'+esc(D.pix.chave)+'" data-msg="Chave Pix copiada">'+I.copy+'Copiar</button></div>'+
+    (svg?'<details class="qr"><summary>Exibir QR Code<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>'+
+      '<div class="qrbox">'+svg+'</div><p class="aviso">Abra o aplicativo do seu banco, escolha Pix e aponte a câmera para o código.</p>'+
+      '<div class="actions"><button type="button" class="pill" data-copy="'+esc(payload)+'" data-msg="Pix copia e cola copiado">'+I.copy+'Copiar Pix copia e cola</button></div></details>':'')+
     '<p class="aviso">'+esc(D.pix.aviso)+'</p></section>';
 
   h+='</div><p class="note">'+esc(D.rodape)+'</p>';
@@ -51,9 +75,9 @@ function render(){
 
 /* ---------- toast e copiar ---------- */
 function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove("show")},1800)}
-function copyText(text){
-  function fb(){var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";ta.readOnly=true;document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(ta);toast(ok?"Chave Pix copiada":"Selecione e copie manualmente")}
-  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("Chave Pix copiada")},fb)}else fb();
+function copyText(text,msg){
+  function fb(){var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";ta.readOnly=true;document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(ta);toast(ok?(msg||"Copiado"):"Selecione e copie manualmente")}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast(msg||"Copiado")},fb)}else fb();
 }
 
 /* ---------- evento semanal em .ics (horário de Brasília, UTC-3) ---------- */
@@ -94,7 +118,7 @@ document.addEventListener("click",function(e){
     try{localStorage.setItem("missas-tema",nx)}catch(_){}
     return;
   }
-  if(b.dataset.copy){copyText(b.dataset.copy);return}
+  if(b.dataset.copy){copyText(b.dataset.copy,b.dataset.msg);return}
   if(b.dataset.ics){
     var ev=D.eventos.filter(function(x){return x.id===b.dataset.ics})[0];
     if(ev) baixarEvento(ev);

@@ -12,14 +12,38 @@
     "titulo": "Falar com a secretaria",
     "texto": "Escolha o assunto e abra a conversa no WhatsApp com a mensagem já pronta.",
     "mensagens": [
-      {"t": "Pedir uma intenção de missa", "m": "Olá! Gostaria de pedir uma intenção de missa.\n\nIntenção (por quem ou por qual motivo): \nData ou horário de preferência: \nMeu nome: "},
-      {"t": "Agendar um batizado", "m": "Olá! Gostaria de informações para agendar um batizado.\n\nNome da criança: \nIdade: \nMeu nome: "},
-      {"t": "Agendar um casamento", "m": "Olá! Gostaria de informações para agendar um casamento.\n\nNomes dos noivos: \nData pretendida: "},
-      {"t": "Catequese e inscrições", "m": "Olá! Gostaria de informações sobre a catequese.\n\nPara quem (nome e idade): \nEtapa desejada: "},
-      {"t": "Certidões e documentos", "m": "Olá! Preciso de um documento da paróquia.\n\nQual documento: \nMeu nome: "},
-      {"t": "Confissões e atendimento dos padres", "m": "Olá! Gostaria de saber os horários de confissão e de atendimento dos padres."},
-      {"t": "Participar de uma pastoral", "m": "Olá! Gostaria de saber como participar de uma pastoral ou movimento da paróquia.\n\nQual pastoral: "},
-      {"t": "Outro assunto", "m": "Olá! Gostaria de falar com a secretaria da paróquia."}
+      {
+        "t": "Pedir uma intenção de missa",
+        "m": "Olá! Gostaria de pedir uma intenção de missa.\n\nIntenção (por quem ou por qual motivo): \nData ou horário de preferência: \nMeu nome: "
+      },
+      {
+        "t": "Agendar um batizado",
+        "m": "Olá! Gostaria de informações para agendar um batizado.\n\nNome da criança: \nIdade: \nMeu nome: "
+      },
+      {
+        "t": "Agendar um casamento",
+        "m": "Olá! Gostaria de informações para agendar um casamento.\n\nNomes dos noivos: \nData pretendida: "
+      },
+      {
+        "t": "Catequese e inscrições",
+        "m": "Olá! Gostaria de informações sobre a catequese.\n\nPara quem (nome e idade): \nEtapa desejada: "
+      },
+      {
+        "t": "Certidões e documentos",
+        "m": "Olá! Preciso de um documento da paróquia.\n\nQual documento: \nMeu nome: "
+      },
+      {
+        "t": "Confissões e atendimento dos padres",
+        "m": "Olá! Gostaria de saber os horários de confissão e de atendimento dos padres."
+      },
+      {
+        "t": "Participar de uma pastoral",
+        "m": "Olá! Gostaria de saber como participar de uma pastoral ou movimento da paróquia.\n\nQual pastoral: "
+      },
+      {
+        "t": "Outro assunto",
+        "m": "Olá! Gostaria de falar com a secretaria da paróquia."
+      }
     ]
   },
   "eventos": [
@@ -49,7 +73,9 @@
     "texto": "Chave Pix (celular):",
     "chave": "+5514981852803",
     "exibir": "(14) 98185-2803",
-    "aviso": "Confira o nome do favorecido no seu aplicativo antes de confirmar."
+    "aviso": "Confira o nome do favorecido no seu aplicativo antes de confirmar.",
+    "nome": "Paróquia São Judas Tadeu",
+    "cidade": "Pederneiras"
   },
   "rodape": "Informações sujeitas a alteração. Em caso de dúvida, fale com a secretaria."
 }

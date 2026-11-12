@@ -91,3 +91,14 @@ h1,h2{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.15;mar
 .zap[open] .chev{transform:rotate(180deg)}
 .zap .msgs{margin:0;padding:0 16px}
 .zap .aviso{padding:0 16px 14px}
+
+/* QR Code Pix */
+.qr{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.qr summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;min-height:44px;font-weight:600;font-size:14px;cursor:pointer;border-radius:12px}
+.qr summary::-webkit-details-marker{display:none}
+.qr .chev{width:20px;height:20px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.qr[open] .chev{transform:rotate(180deg)}
+.qr .qrbox{background:#fff;margin:4px 12px 0;padding:12px;border-radius:12px;max-width:260px;margin-inline:auto}
+.qr .qrbox svg{display:block;width:100%;height:auto}
+.qr .aviso,.qr .actions{padding:0 12px}
+.qr .actions{margin:8px 0 12px}
