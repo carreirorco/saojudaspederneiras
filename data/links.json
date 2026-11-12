@@ -1,0 +1,55 @@
+{
+  "titulo": "Paróquia São Judas Tadeu",
+  "subtitulo": "Pederneiras · SP",
+  "agenda": {
+    "url": "https://carreirorco.github.io/agenda-missas/",
+    "titulo": "Agenda de Missas",
+    "texto": "Horários do mês, a missa de hoje e a próxima celebração"
+  },
+  "whatsapp": {
+    "numero": "5514981852803",
+    "exibir": "(14) 98185-2803",
+    "titulo": "Falar com a secretaria",
+    "texto": "Escolha o assunto e abra a conversa no WhatsApp com a mensagem já pronta.",
+    "mensagens": [
+      {"t": "Pedir uma intenção de missa", "m": "Olá! Gostaria de pedir uma intenção de missa.\n\nIntenção (por quem ou por qual motivo): \nData ou horário de preferência: \nMeu nome: "},
+      {"t": "Agendar um batizado", "m": "Olá! Gostaria de informações para agendar um batizado.\n\nNome da criança: \nIdade: \nMeu nome: "},
+      {"t": "Agendar um casamento", "m": "Olá! Gostaria de informações para agendar um casamento.\n\nNomes dos noivos: \nData pretendida: "},
+      {"t": "Catequese e inscrições", "m": "Olá! Gostaria de informações sobre a catequese.\n\nPara quem (nome e idade): \nEtapa desejada: "},
+      {"t": "Certidões e documentos", "m": "Olá! Preciso de um documento da paróquia.\n\nQual documento: \nMeu nome: "},
+      {"t": "Confissões e atendimento dos padres", "m": "Olá! Gostaria de saber os horários de confissão e de atendimento dos padres."},
+      {"t": "Participar de uma pastoral", "m": "Olá! Gostaria de saber como participar de uma pastoral ou movimento da paróquia.\n\nQual pastoral: "},
+      {"t": "Outro assunto", "m": "Olá! Gostaria de falar com a secretaria da paróquia."}
+    ]
+  },
+  "eventos": [
+    {
+      "id": "terco-dos-homens",
+      "titulo": "Terço dos Homens",
+      "quando": "Toda quarta-feira, às 20h",
+      "onde": "Matriz de São Judas Tadeu",
+      "diaSemana": 3,
+      "hora": "20:00",
+      "duracaoMin": 60,
+      "local": "Matriz de São Judas Tadeu, Pederneiras/SP",
+      "descricao": "Terço dos Homens na Matriz de São Judas Tadeu."
+    }
+  ],
+  "atendimento": {
+    "titulo": "Confissões e atendimento",
+    "texto": "Os horários ainda serão divulgados aqui. Enquanto isso, pergunte à secretaria pelo WhatsApp."
+  },
+  "mapa": {
+    "titulo": "Como chegar",
+    "texto": "Matriz de São Judas Tadeu, em Pederneiras.",
+    "consulta": "Paróquia São Judas Tadeu, Pederneiras, SP"
+  },
+  "pix": {
+    "titulo": "Contribua com a paróquia",
+    "texto": "Chave Pix (celular):",
+    "chave": "+5514981852803",
+    "exibir": "(14) 98185-2803",
+    "aviso": "Confira o nome do favorecido no seu aplicativo antes de confirmar."
+  },
+  "rodape": "Informações sujeitas a alteração. Em caso de dúvida, fale com a secretaria."
+}

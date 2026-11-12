@@ -1,0 +1,93 @@
+/* Identidade da Paróquia São Judas Tadeu (mesma da Agenda de Missas): azul-marinho + dourado, Cormorant Garamond. */
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600 700;font-display:swap;
+  src:url(fonts/cormorant-garamond-latin.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}
+:root{
+  color-scheme:only light;
+  --bg:#f5f7fb; --fg:#16223b; --muted:#55627d; --surface:#ffffff; --surface2:#e6ecf8; --line:#dce2ee;
+  --brand:#1e3a6e; --on-brand:#ffffff; --gold:#b8862b; --gold-text:#7e5a14; --gold-bg:#f7efdc;
+  --shadow:0 1px 2px rgb(22 34 59 / .06),0 4px 14px rgb(22 34 59 / .06);
+  --font-display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --font-body:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0a1222; --fg:#e7edf9; --muted:#9dabc6; --surface:#111b30; --surface2:#172647; --line:#233250;
+  --brand:#8fb1f0; --on-brand:#0a1428; --gold:#d6ab55; --gold-text:#e3be72; --gold-bg:#2e2410;
+  --shadow:0 1px 2px rgb(0 0 0 / .4),0 6px 18px rgb(0 0 0 / .35);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.45;
+  padding:env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) calc(32px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+button,a{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:8px}
+h1,h2{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.15;margin:0}
+.wrap{max-width:480px;margin-inline:auto}
+
+.themebtn{position:fixed;z-index:40;top:calc(10px + env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);display:grid;place-items:center;padding:0}
+.themebtn svg{width:19px;height:19px;stroke:var(--fg);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+:root[data-theme="light"] .themebtn .sun,:root[data-theme="dark"] .themebtn .moon{display:none}
+
+.top{text-align:center;padding-top:28px}
+.medallion{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;
+  background:radial-gradient(circle at 30% 25%,color-mix(in srgb,var(--brand),white 22%),var(--brand) 70%);
+  color:var(--on-brand);font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:.02em;
+  box-shadow:0 0 0 3px var(--bg),0 0 0 5.5px var(--gold),var(--shadow)}
+.top h1{font-size:31px;font-weight:700}
+.sub{margin:4px 0 0;color:var(--gold-text);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.cross-rule{display:flex;align-items:center;gap:.75rem;color:var(--gold);margin:18px 0 6px}
+.cross-rule::before,.cross-rule::after{content:"";flex:1;height:1px;background:currentColor;opacity:.55}
+
+.stack{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.ico{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.btn{display:flex;align-items:center;gap:14px;width:100%;text-align:left;text-decoration:none;border:1px solid var(--line);background:var(--surface);
+  border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);min-height:56px}
+.btn b{display:block;font-weight:700;font-size:16px}
+.btn small{display:block;color:var(--muted);font-size:13px;line-height:1.3;margin-top:1px}
+.btn.primary{background:var(--brand);color:var(--on-brand);border-color:var(--brand);box-shadow:0 0 0 1px var(--gold) inset,var(--shadow)}
+.btn.primary small{color:inherit;opacity:.9}
+.btn:hover{border-color:var(--brand)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+.card h2{font-size:23px;display:flex;align-items:center;gap:10px}
+.card h2 .ico{color:var(--gold-text)}
+.card p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.card .when{color:var(--fg);font-weight:600;margin-top:8px;font-size:15px}
+.card .actions{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;text-decoration:none;min-height:40px}
+.pill:hover{border-color:var(--brand)}
+.pill .ico{width:18px;height:18px}
+.pill.solid{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+
+.msgs{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.msgs a{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;border:1px solid var(--line);background:var(--bg);
+  border-radius:12px;padding:10px 12px;font-size:14px;font-weight:600;min-height:44px}
+.msgs a:hover{border-color:var(--brand)}
+.msgs a svg{width:16px;height:16px;flex:none;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.chave{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--gold-bg);
+  border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);border-radius:12px;padding:10px 12px}
+.chave b{font-size:18px;font-variant-numeric:lining-nums tabular-nums}
+.aviso{font-size:12.5px;color:var(--muted);margin-top:8px}
+.note{margin-top:24px;color:var(--muted);font-size:12.5px;text-align:center}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--fg);color:var(--bg);
+  padding:10px 18px;border-radius:999px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* conversa com a secretaria: lista recolhida */
+.zap{padding:0}
+.zap summary{list-style:none;display:flex;align-items:center;gap:14px;padding:14px 16px;min-height:56px;cursor:pointer;border-radius:16px}
+.zap summary::-webkit-details-marker{display:none}
+.zap summary b{display:block;font-size:16px}
+.zap summary small{display:block;color:var(--muted);font-size:13px;line-height:1.3;margin-top:1px}
+.zap summary .ico{color:var(--gold-text)}
+.zap .chev{width:20px;height:20px;flex:none;margin-left:auto;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.zap[open] .chev{transform:rotate(180deg)}
+.zap .msgs{margin:0;padding:0 16px}
+.zap .aviso{padding:0 16px 14px}
