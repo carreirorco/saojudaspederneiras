@@ -52,9 +52,9 @@ function render(){
       return '<a class="pill" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(r.nome+": "+r.usuario)+'">'+(I[r.nome.toLowerCase()]||"")+esc(r.nome)+'</a>'}).join("")+'</nav>';
   }
   h+='<div class="stack">';
-  h+='<a class="btn primary" href="'+esc(D.agenda.url)+'">'+I.cal+'<span><b>'+esc(D.agenda.titulo)+'</b><small>'+esc(D.agenda.texto)+'</small></span></a>';
+  h+='<a class="btn primary" href="'+esc(D.agenda.url)+'"><span class="hd">'+I.cal+'<b>'+esc(D.agenda.titulo)+'</b></span><small>'+esc(D.agenda.texto)+'</small></a>';
 
-  h+='<details class="card zap"><summary>'+I.chat+'<span><b>'+esc(D.whatsapp.titulo)+'</b><small>'+esc(D.whatsapp.texto)+'</small></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><ul class="msgs">'+
+  h+='<details class="card zap"><summary><span class="hd">'+I.chat+'<b>'+esc(D.whatsapp.titulo)+'</b><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span><small>'+esc(D.whatsapp.texto)+'</small></summary><ul class="msgs">'+
     D.whatsapp.mensagens.map(function(m){
       return '<li><a href="'+esc(zap(m.m))+'" target="_blank" rel="noopener noreferrer">'+esc(m.t)+I.go+'</a></li>';
     }).join("")+'</ul><p class="aviso">WhatsApp da secretaria: '+esc(D.whatsapp.exibir)+'</p></details>';

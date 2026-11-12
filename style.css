@@ -108,3 +108,17 @@ h1,h2{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.15;mar
 .redes .pill{padding:8px 9px;gap:5px;font-size:13px}
 .redes .pill .ico{width:17px;height:17px}
 .redes{gap:5px}
+
+/* padrão único de título: serifa 23px, ícone dourado ao lado, texto de apoio abaixo */
+.hd{display:flex;align-items:center;gap:10px}
+.hd b{font-family:var(--font-display);font-size:23px;font-weight:700;line-height:1.15;letter-spacing:-.01em;display:block}
+.btn{display:block;padding:16px}
+.btn small,.zap summary small{font-size:14px;margin-top:6px;line-height:1.45}
+.btn .hd .ico{color:var(--gold)}
+.btn.primary small{opacity:.88}
+.zap summary{display:block;padding:16px}
+.zap summary .hd .ico{color:var(--gold-text)}
+.zap summary b{font-size:23px}
+.zap .chev{margin-left:auto}
+.zap .msgs{margin-top:12px}
+:root[data-theme="dark"] .btn.primary .hd .ico{color:var(--on-brand)}
