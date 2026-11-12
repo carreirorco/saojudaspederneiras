@@ -15,6 +15,9 @@ var I={
   heart:'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg>',
   clock:'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.500V12l3 2"/></svg>',
   copy:'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>',
+  instagram:'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6"/></svg>',
+  facebook:'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg>',
+  whatsapp:'<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4.100A8 8 0 1 1 8.200 18.900z"/><path d="M9.200 8.800c0 3 2.500 5.600 5.600 6l1.100-1.300-1.800-.9-.8.700c-.9-.3-1.900-1.300-2.300-2.200l.7-.8-.9-1.800z"/></svg>',
   go:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>'
 };
 
@@ -42,7 +45,13 @@ function pixQrSvg(payload){
 }
 
 function render(){
-  var h='<div class="stack">';
+  var h='';
+  var redes=(D.redes||[]).concat([{nome:"WhatsApp",usuario:D.whatsapp.exibir,url:"https://wa.me/"+D.whatsapp.numero}]);
+  if(redes.length){
+    h+='<nav class="redes" aria-label="Redes sociais e contato">'+redes.filter(function(r){return /^https:\/\//.test(r.url)}).map(function(r){
+      return '<a class="pill" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(r.nome+": "+r.usuario)+'">'+(I[r.nome.toLowerCase()]||"")+esc(r.nome)+'</a>'}).join("")+'</nav>';
+  }
+  h+='<div class="stack">';
   h+='<a class="btn primary" href="'+esc(D.agenda.url)+'">'+I.cal+'<span><b>'+esc(D.agenda.titulo)+'</b><small>'+esc(D.agenda.texto)+'</small></span></a>';
 
   h+='<details class="card zap"><summary>'+I.chat+'<span><b>'+esc(D.whatsapp.titulo)+'</b><small>'+esc(D.whatsapp.texto)+'</small></span><svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><ul class="msgs">'+

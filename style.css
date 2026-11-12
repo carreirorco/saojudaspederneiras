@@ -102,3 +102,9 @@ h1,h2{font-family:var(--font-display);letter-spacing:-.01em;line-height:1.15;mar
 .qr .qrbox svg{display:block;width:100%;height:auto}
 .qr .aviso,.qr .actions{padding:0 12px}
 .qr .actions{margin:8px 0 12px}
+
+/* redes sociais, abaixo da cruz */
+.redes{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:12px}
+.redes .pill{padding:8px 9px;gap:5px;font-size:13px}
+.redes .pill .ico{width:17px;height:17px}
+.redes{gap:5px}

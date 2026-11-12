@@ -79,5 +79,17 @@
     "cidade": "Pederneiras",
     "qr": false
   },
+  "redes": [
+    {
+      "nome": "Instagram",
+      "usuario": "@paroquiasaojudas_tadeu",
+      "url": "https://www.instagram.com/paroquiasaojudas_tadeu/"
+    },
+    {
+      "nome": "Facebook",
+      "usuario": "Paróquia São Judas Pederneiras",
+      "url": "https://www.facebook.com/ParoquiaSaoJudasPederneiras"
+    }
+  ],
   "rodape": "Informações sujeitas a alteração. Em caso de dúvida, fale com a secretaria."
 }
