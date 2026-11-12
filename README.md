@@ -9,6 +9,10 @@ Tudo está em `data/links.json`: link da agenda, número do WhatsApp, as **mensa
 - Cada mensagem-modelo abre o WhatsApp com o texto já escrito; `\n` é quebra de linha.
 - Novo evento semanal: copie o bloco de `eventos` (`diaSemana`: 0 = domingo … 6 = sábado). O botão baixa um `.ics` que se repete toda semana.
 
+## Itens ocultos
+- **Terço dos Homens:** em `data/links.json`, o evento tem `"ativo": false`. Para mostrar de novo, troque para `true` (ou apague a linha).
+- **QR Code do Pix:** `"qr": false` em `pix` esconde o expansível e o "copia e cola". Troque para `true` para exibir.
+
 ## QR Code do Pix
 O QR Code é gerado no próprio navegador a partir de `pix` em `data/links.json` (`chave`, `nome`, `cidade`), no padrão do Banco Central (Pix estático, sem valor). Para trocar a chave, edite só o JSON. `nome` (até 25 caracteres) e `cidade` (até 15) saem sem acento e em maiúsculas. O aplicativo do banco mostra o nome verdadeiro do favorecido da chave. A biblioteca está em `vendor/qrcode.js` (qrcode-generator, MIT).
 

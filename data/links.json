@@ -56,7 +56,8 @@
       "hora": "20:00",
       "duracaoMin": 60,
       "local": "Matriz de São Judas Tadeu, Pederneiras/SP",
-      "descricao": "Terço dos Homens na Matriz de São Judas Tadeu."
+      "descricao": "Terço dos Homens na Matriz de São Judas Tadeu.",
+      "ativo": false
     }
   ],
   "atendimento": {
@@ -75,7 +76,8 @@
     "exibir": "(14) 98185-2803",
     "aviso": "Confira o nome do favorecido no seu aplicativo antes de confirmar.",
     "nome": "Paróquia São Judas Tadeu",
-    "cidade": "Pederneiras"
+    "cidade": "Pederneiras",
+    "qr": false
   },
   "rodape": "Informações sujeitas a alteração. Em caso de dúvida, fale com a secretaria."
 }

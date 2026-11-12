@@ -50,7 +50,7 @@ function render(){
       return '<li><a href="'+esc(zap(m.m))+'" target="_blank" rel="noopener noreferrer">'+esc(m.t)+I.go+'</a></li>';
     }).join("")+'</ul><p class="aviso">WhatsApp da secretaria: '+esc(D.whatsapp.exibir)+'</p></details>';
 
-  D.eventos.forEach(function(e){
+  D.eventos.filter(function(e){return e.ativo!==false}).forEach(function(e){
     h+='<section class="card"><h2>'+I.cross+esc(e.titulo)+'</h2><p class="when">'+esc(e.quando)+'</p><p>'+esc(e.onde)+'</p>'+
       '<div class="actions"><button type="button" class="pill" data-ics="'+esc(e.id)+'">'+I.calAdd+'Adicionar à agenda</button></div></section>';
   });
@@ -61,7 +61,7 @@ function render(){
   h+='<section class="card"><h2>'+I.pin+esc(D.mapa.titulo)+'</h2><p>'+esc(D.mapa.texto)+'</p>'+
     '<div class="actions"><a class="pill solid" href="'+esc(mapaUrl())+'" target="_blank" rel="noopener noreferrer">Abrir no mapa</a></div></section>';
 
-  var payload=pixPayload(D.pix), svg=pixQrSvg(payload);
+  var payload=pixPayload(D.pix), svg=D.pix.qr===false?"":pixQrSvg(payload);
   h+='<section class="card"><h2>'+I.heart+esc(D.pix.titulo)+'</h2><p>'+esc(D.pix.texto)+'</p>'+
     '<div class="chave"><b>'+esc(D.pix.exibir)+'</b><button type="button" class="pill" data-copy="'+esc(D.pix.chave)+'" data-msg="Chave Pix copiada">'+I.copy+'Copiar</button></div>'+
     (svg?'<details class="qr"><summary>Exibir QR Code<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>'+
